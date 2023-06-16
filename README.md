@@ -3,4 +3,4 @@
 A new Flutter project.
 ## Screenshots of the App
 
-![img.png](img.png)
+![img_1.png](img_1.png)
