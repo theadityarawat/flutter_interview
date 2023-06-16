@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final String imagePath = 'images/image.png'; // Replace with the path to your image
+  final String imagePath = 'images/image.png';
 
   @override
   Widget build(BuildContext context) {
@@ -15,31 +15,32 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: GestureDetector(
             onScaleUpdate: (ScaleUpdateDetails details) {
-
+              // Scale factor obtained from the gesture
               double scaleFactor = details.scale;
+
+              //Scaling can be done here
             },
             child: LayoutBuilder(
               builder: (context, constraints) {
-                return Stack(
-                  alignment: Alignment.center,
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Positioned(
-                      top: constraints.maxHeight / 3,
-                      bottom: constraints.maxHeight / 3,
-                      left: constraints.maxWidth / 3,
-                      right: constraints.maxWidth / 3,
-                      child: Image.asset(
-                        imagePath,
+                    Expanded(
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: Image.asset(
+                          imagePath,
+                        ),
                       ),
                     ),
-                    Positioned(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // Button action
-                        },
-                        child: Text('Upload'),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Button action
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.red,
                       ),
-                      bottom: 20,
+                      child: Text('Upload'),
                     ),
                   ],
                 );
